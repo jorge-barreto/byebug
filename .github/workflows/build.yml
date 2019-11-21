@@ -133,4 +133,4 @@ jobs:
       - name: Aggregate & upload results to Code Climate
         run: |
           cc-test-reporter sum-coverage coverage/codeclimate.*.json
-          cc-test-reporter upload-coverage
+          GIT_BRANCH=$GITHUB_HEAD_REF GIT_COMMIT_SHA=$(git rev-parse origin/$GITHUB_HEAD_REF) cc-test-reporter upload-coverage

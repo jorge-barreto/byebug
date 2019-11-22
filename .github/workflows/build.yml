@@ -50,6 +50,8 @@ jobs:
     needs: test
 
     steps:
+      - uses: actions/checkout@master
+
       - uses: actions/download-artifact@v1
         with:
           name: coverage-2.4.9-libedit-clang

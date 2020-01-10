@@ -30,7 +30,7 @@ jobs:
           bin/rake
 
       - name: Save coverage
-        run: GIT_BRANCH=$GITHUB_HEAD_REF GIT_COMMIT_SHA=$(git rev-parse origin/$GITHUB_HEAD_REF) cc-test-reporter format-coverage --output coverage/codeclimate.${{ matrix.version }}-${{ matrix.line_editor }}-${{ matrix.compiler }}.json
+        run: GIT_BRANCH=$GITHUB_REF GIT_COMMIT_SHA=$GITHUB_SHA cc-test-reporter format-coverage --output coverage/codeclimate.${{ matrix.version }}-${{ matrix.line_editor }}-${{ matrix.compiler }}.json
 
       - uses: actions/upload-artifact@v1
         with:
@@ -134,5 +134,5 @@ jobs:
 
       - name: Aggregate & upload results to Code Climate
         run: |
-          GIT_BRANCH=$GITHUB_HEAD_REF GIT_COMMIT_SHA=$(git rev-parse origin/$GITHUB_HEAD_REF) cc-test-reporter sum-coverage coverage/codeclimate.*.json
-          GIT_BRANCH=$GITHUB_HEAD_REF GIT_COMMIT_SHA=$(git rev-parse origin/$GITHUB_HEAD_REF) cc-test-reporter upload-coverage
+          GIT_BRANCH=$GITHUB_REF GIT_COMMIT_SHA=$GITHUB_SHA cc-test-reporter sum-coverage coverage/codeclimate.*.json
+          GIT_BRANCH=$GITHUB_REF GIT_COMMIT_SHA=$GITHUB_SHA cc-test-reporter upload-coverage

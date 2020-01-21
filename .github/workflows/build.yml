@@ -144,4 +144,4 @@ jobs:
         run: |
           git rev-parse "origin/$GITHUB_HEAD_REF"
           cc-test-reporter sum-coverage coverage/codeclimate.*.json
-          GIT_BRANCH=$GITHUB_HEAD_REF GIT_COMMIT_SHA=$(git rev-parse "origin/$GITHUB_HEAD_REF") cc-test-reporter upload-coverage
+          GIT_BRANCH=$GITHUB_REF GIT_COMMIT_SHA=$GITHUB_SHA cc-test-reporter upload-coverage

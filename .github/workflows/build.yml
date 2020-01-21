@@ -29,6 +29,11 @@ jobs:
           bin/setup.sh
           bin/rake
 
+      - name: Debug
+        run: |
+          echo "GITHUB_REF: $GITHUB_REF"
+          echo "GITHUB_HEAD_REAF: $GITHUB_HEAD_REF"
+
       - name: Save coverage
         run: GIT_BRANCH=$GITHUB_REF GIT_COMMIT_SHA=$GITHUB_SHA cc-test-reporter format-coverage --output coverage/codeclimate.${{ matrix.version }}-${{ matrix.line_editor }}-${{ matrix.compiler }}.json
 

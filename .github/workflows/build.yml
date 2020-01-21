@@ -61,42 +61,12 @@ jobs:
 
       - uses: actions/download-artifact@v1
         with:
-          name: coverage-2.5.7-clang
-          path: coverage
-
-      - uses: actions/download-artifact@v1
-        with:
-          name: coverage-2.5.7-gcc
-          path: coverage
-
-      - uses: actions/download-artifact@v1
-        with:
           name: coverage-2.6.5-clang
           path: coverage
 
       - uses: actions/download-artifact@v1
         with:
           name: coverage-2.6.5-gcc
-          path: coverage
-
-      - uses: actions/download-artifact@v1
-        with:
-          name: coverage-2.6.5-clang
-          path: coverage
-
-      - uses: actions/download-artifact@v1
-        with:
-          name: coverage-2.6.5-gcc
-          path: coverage
-
-      - uses: actions/download-artifact@v1
-        with:
-          name: coverage-2.7.0-clang
-          path: coverage
-
-      - uses: actions/download-artifact@v1
-        with:
-          name: coverage-2.7.0-gcc
           path: coverage
 
       - uses: actions/download-artifact@v1

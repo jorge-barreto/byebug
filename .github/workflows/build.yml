@@ -22,7 +22,7 @@ jobs:
         compiler: ["clang", "gcc"]
 
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
 
       - name: Run CI checks
         run: |
@@ -50,7 +50,15 @@ jobs:
     needs: test
 
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Debug
+        run: |
+          echo "$GITHUB_REF: $GITHUB_REF"
+          echo "$GITHUB_SHA: $GITHUB_SHA"
+          echo "$GITHUB_HEAD_REF: $GITHUB_HEAD_REF"
 
       - uses: actions/download-artifact@v1
         with:
